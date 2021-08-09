@@ -6,7 +6,7 @@
 */
 const { nanoid } = require('nanoid');
 const { Pool } = require('pg');
-const { mapDBToModel } = require('../../../utils');
+const { mapDBToModel } = require('../../utils');
 const InvariantError = require('../../exceptions/InvariantError');
 const NotFoundError = require('../../exceptions/NotFoundError');
 
