@@ -112,7 +112,7 @@ class NotesService {
     };
     const result = await this._pool.query(query);
     if (!result.rows.length) {
-      throw new NotFoundError('Catatan tidak ditemkan');
+      throw new NotFoundError('Catatan tidak ditemukan');
     }
     const note = result.rows[0];
     if (note.owner !== owner) {
