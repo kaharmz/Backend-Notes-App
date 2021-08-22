@@ -42,6 +42,7 @@ class CollaborationsHandler {
           message: error.message,
         });
         response.code(error.statusCode);
+        return response;
       }
       // Server ERROR!
       const response = h.response({
