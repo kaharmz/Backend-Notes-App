@@ -66,6 +66,20 @@ class UsersService {
     return result.rows[0];
   }
 
+  /* create a new asynchronous function
+     "getUsersByUsername" that accepts one parameter with a username name
+     Query to get users (id, username, and fullname)
+     whose username contains the word given to the username parameter
+  */
+  async getUsersByUsername(username) {
+    const query = {
+      text: 'SELECT id, username, fullname FROM users WHERE username LIKE $1',
+      values: [`%${username}%`],
+    };
+    const result = await this._pool.query(query);
+    return result.rows;
+  }
+
   /* Create verifyUserCredential function that accepts two string parameters: username and password
   * Query to obtain id and password from user table based on username submitted through parameters
   * Use AuthenticationError that has been created when the result.rows.length value is empty
