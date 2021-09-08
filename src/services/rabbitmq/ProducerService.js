@@ -10,9 +10,8 @@ const ProducerService = {
     await channel.sendToQueue(queue, Buffer.from(message));
     setTimeout(() => {
       connection.close();
-    }, 1000)
+    }, 1000);
   },
 };
 
 module.exports = ProducerService;
-
