@@ -15,7 +15,7 @@ const notes = require('./api/notes');
 const NotesService = require('./services/postgres/NotesService');
 const NotesValidator = require('./validator/notes');
 const Inert = require('@hapi/inert');
-const path = require('path');
+// const path = require('path');
 
 // Users
 const users = require('./api/users');
@@ -23,7 +23,7 @@ const UsersService = require('./services/postgres/UsersService');
 const UsersValidator = require('./validator/users');
 
 // Authentication
-const authentications = require('./api/authentcations');
+const authentications = require('./api/authentications');
 const AuthenticationsService = require('./services/postgres/AuthenticationsService');
 const TokenManager = require('./tokenize/TokenManager');
 const AuthenticationsValidator = require('./validator/authentications');
