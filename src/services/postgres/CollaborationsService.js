@@ -8,8 +8,9 @@ Create CollaborationsService classes and constructors
 initialize properties this._pool with instance values pg. Pool.
 */
 class CollaborationsService {
-  constructor() {
+  constructor(cacheService) {
     this._pool = new Pool();
+    this._cacheService = cacheService;
   }
 
   /* Create a new asynchronous function
@@ -33,6 +34,7 @@ class CollaborationsService {
     if (!result.rows.length) {
       throw new InvariantError('Kolaborasi gagal ditambahkan');
     }
+    await this._cacheService.delete(`notes:${userId}`);
     return result.rows[0].id;
   }
 
@@ -54,6 +56,7 @@ class CollaborationsService {
     if (!result.rows.length) {
       throw new InvariantError('Kolaborasi gagal dihapus');
     }
+    await this._cacheService.delete(`notes:${userId}`);
   }
 
   /*
