@@ -28,6 +28,9 @@ class CacheService {
     return new Promise((resolve, reject) => {
       this._client.get(key, (error, reply) => {
         if (error) {
+          return reject(error);
+        }
+        if (reply === null) {
           return reject(new Error('Cache tidak ditemukan'));
         }
         return resolve(reply.toString());
